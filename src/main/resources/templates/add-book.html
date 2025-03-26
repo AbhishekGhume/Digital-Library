@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add Book | Library Management</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h1><i class="fas fa-plus-circle"></i> Add New Book</h1>
+    <nav>
+      <a th:href="@{/books}" class="btn"><i class="fas fa-home"></i> Home</a>
+      <a th:href="@{/books/all}" class="btn"><i class="fas fa-list"></i> View All</a>
+    </nav>
+  </header>
+
+  <main>
+    <form class="book-form" th:action="@{/books/add}" th:object="${book}" method="post">
+      <div th:if="${error}" class="alert alert-error" th:text="${error}"></div>
+
+      <div class="form-group">
+        <label for="bookId"><i class="fas fa-barcode"></i> Book ID</label>
+        <input type="text" id="bookId" th:field="*{bookId}" required>
+        <small>Must be unique</small>
+      </div>
+
+      <div class="form-group">
+        <label for="title"><i class="fas fa-book"></i> Title</label>
+        <input type="text" id="title" th:field="*{title}" required>
+      </div>
+
+      <div class="form-group">
+        <label for="author"><i class="fas fa-user"></i> Author</label>
+        <input type="text" id="author" th:field="*{author}" required>
+      </div>
+
+      <div class="form-group">
+        <label for="genre"><i class="fas fa-tags"></i> Genre</label>
+        <input type="text" id="genre" th:field="*{genre}">
+      </div>
+
+      <div class="form-group">
+        <label for="status"><i class="fas fa-info-circle"></i> Status</label>
+        <select id="status" th:field="*{availabilityStatus}">
+          <option th:each="status : ${T(com.library.library.model.AvailabilityStatus).values()}"
+                  th:value="${status}" th:text="${status}"></option>
+        </select>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn-submit"><i class="fas fa-save"></i> Save Book</button>
+        <button type="reset" class="btn-reset"><i class="fas fa-undo"></i> Reset</button>
+        <a th:href="@{/books/all}" class="btn-cancel"><i class="fas fa-times"></i> Cancel</a>
+      </div>
+    </form>
+  </main>
+</div>
+<script th:src="@{/js/script.js}"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1><i class="fas fa-book-open"></i> Library Management System</h1>
+        <nav>
+<!--            <a href="/templates/add-book.html" class="btn"><i class="fas fa-plus"></i> Add Book</a>-->
+            <a th:href="@{/books/add}" class="btn"><i class="fas fa-plus"></i> Add Book</a>
+            <a th:href="@{/books/all}" class="btn"><i class="fas fa-list"></i> View All Books</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="search-section">
+            <h2>Search Books</h2>
+            <form id="searchForm" th:action="@{/books/search}" method="post">
+                <div class="search-box">
+                    <input type="text" name="query" placeholder="Search by id or title..." required>
+                    <button type="submit"><i class="fas fa-search"></i> Search</button>
+                </div>
+            </form>
+        </section>
+
+        <section class="stats-section">
+            <div class="stat-card">
+                <i class="fas fa-book"></i>
+                <h3>Total Books</h3>
+                <p th:text="${totalBooks}">0</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-check-circle"></i>
+                <h3>Available</h3>
+                <p th:text="${availableBooks}">0</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-times-circle"></i>
+                <h3>Checked Out</h3>
+                <p th:text="${checkedOutBooks}">0</p>
+            </div>
+        </section>
+    </main>
+</div>
+<script th:src="@{/js/script.js}"></script>
+</body>
+</html>
