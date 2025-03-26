@@ -123,6 +123,16 @@ spring.application.name=library
 
 ---
 
+
+## **Demo Video**  
+
+You can view the working demo of the Library Management System below:  
+
+![Project Demo](screenshots/demo.mp4)  
+
+If the video does not load, [click here to download it](screenshots/demo.mp4).  
+
+
 ---
 
 ## **Contributing**  
