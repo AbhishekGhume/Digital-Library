@@ -123,13 +123,6 @@ spring.application.name=library
 
 ---
 
-## **Running Tests**  
-
-To run unit tests, execute:  
-```bash
-mvn test
-```
-
 ---
 
 ## **Contributing**  
@@ -168,12 +161,4 @@ This project is licensed under the **MIT License** – see the `LICENSE` file fo
 
 ---
 
-### **To use this README:**  
-
-✅ **Create a `screenshots/` directory** and add actual screenshots.  
-✅ **Update the MongoDB connection details** with your actual cluster.  
-✅ **Modify the repository URL** in the installation section.  
-✅ **Add a `LICENSE` file** if needed.  
-
-Let me know if you need further improvements! 🚀
 
